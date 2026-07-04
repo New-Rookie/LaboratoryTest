@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+
+# Runtime outputs
+data/*.db
+logs/**
+reports/**
+artifacts/**
+!logs/.gitkeep
+!reports/.gitkeep
+!artifacts/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
