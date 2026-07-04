@@ -1,0 +1,9 @@
+name: device_discovery
+kind: device_discovery
+runner: device_discovery
+evaluator: device_discovery
+collectors: []
+requires: []
+description: 自动识别当前设备的软件、硬件和服务能力。
+params: {}
+thresholds: {}
