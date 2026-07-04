@@ -1,0 +1,23 @@
+name: llm_parameter_sweep
+kind: generic_smoke
+runner: parameter_sweep
+evaluator: generic_smoke
+collectors:
+  - nvidia_smi
+requires:
+  - llm.ollama
+description: LLM 参数组合实验，默认通过 Ollama 测试并发、输出长度和温度。
+params:
+  delegate_runner: ollama
+  max_trials: 12
+  base_params:
+    base_url: http://localhost:11434
+    model: qwen2.5:7b
+    prompt: 请用两句话说明大模型部署测试的关键指标。
+    total_requests: 2
+    timeout: 180
+  grid:
+    concurrency: [1, 2, 4]
+    max_tokens: [128, 256]
+    temperature: [0.1, 0.3]
+thresholds: {}
