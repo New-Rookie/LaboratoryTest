@@ -1,0 +1,21 @@
+name: ollama_chat_smoke
+kind: llm_benchmark
+runner: ollama
+evaluator: llm_benchmark
+collectors:
+  - nvidia_smi
+requires:
+  - llm.ollama
+description: Ollama 单请求或小并发 smoke 测试。
+params:
+  base_url: http://localhost:11434
+  model: qwen2.5:7b
+  prompt: 请用一句话说明当前模型服务是否可用。
+  concurrency: 1
+  total_requests: 1
+  temperature: 0.3
+  max_tokens: 128
+  timeout: 120
+thresholds:
+  success_rate_min: 0.95
+  avg_latency_max_seconds: 30
