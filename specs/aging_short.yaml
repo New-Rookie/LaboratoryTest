@@ -1,0 +1,23 @@
+name: aging_short
+kind: generic_smoke
+runner: aging_short
+evaluator: generic_smoke
+collectors:
+  - nvidia_smi
+requires:
+  - llm.ollama
+description: 短时老化 smoke 测试，默认循环调用 Ollama。
+params:
+  delegate_runner: ollama
+  iterations: 3
+  sleep_seconds: 1
+  delegate_params:
+    base_url: http://localhost:11434
+    model: qwen2.5:7b
+    prompt: 请用一句话返回 OK。
+    concurrency: 1
+    total_requests: 1
+    temperature: 0.1
+    max_tokens: 32
+    timeout: 120
+thresholds: {}
