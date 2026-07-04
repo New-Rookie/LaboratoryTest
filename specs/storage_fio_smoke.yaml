@@ -1,0 +1,16 @@
+name: storage_fio_smoke
+kind: storage_benchmark
+runner: fio
+evaluator: storage_benchmark
+collectors: []
+requires:
+  - storage.fio
+description: fio 存储 smoke 测试，默认使用 artifacts/fio 目录。
+params:
+  target_dir: artifacts/fio
+  size: 128M
+  runtime: 10
+  rw: readwrite
+  bs: 4k
+  iodepth: 1
+thresholds: {}
