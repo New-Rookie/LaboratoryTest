@@ -1,0 +1,10 @@
+name: tensorrt_smoke
+kind: generic_smoke
+runner: tensorrt_smoke
+evaluator: generic_smoke
+collectors: []
+requires:
+  - model.tensorrt
+description: TensorRT trtexec 可用性 smoke 测试。
+params: {}
+thresholds: {}
