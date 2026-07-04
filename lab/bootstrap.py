@@ -18,6 +18,7 @@ from lab.store import SQLiteEvidenceStore
 from slices.aging import AgingRunner
 from slices.device_discovery import DeviceDiscoveryRunner
 from slices.evaluators import DeviceDiscoveryEvaluator, GenericSmokeEvaluator, LLMBenchmarkEvaluator, StorageEvaluator
+from slices.parameter_sweep import ParameterSweepRunner
 
 
 def build_registry() -> Registry:
@@ -47,6 +48,7 @@ def build_registry() -> Registry:
         registry.add_runner(runner)
 
     registry.add_runner(AgingRunner(registry))
+    registry.add_runner(ParameterSweepRunner(registry))
 
     for evaluator in [
         DeviceDiscoveryEvaluator(),
